@@ -37,14 +37,16 @@
   };
 
   # Enable the X11 windowing system.
-  services.xserver = {
-    enable = true;
-    desktopManager.gnome.enable = true;
-    displayManager.gdm.enable = true;
-    xkb.layout = "fr";
-    xkb.options = "eurosign:e,caps:escape";
-    videoDrivers = [ "intel" ];
-  };
+  services.xserver.enable = true;
+
+  # Enable the GNOME Desktop Environment.
+  services.displayManager.gdm.enable = true;
+  services.desktopManager.gnome.enable = true;
+
+  # Configure keymap in X11
+  services.xserver.xkb.layout = "fr";
+  services.xserver.xkb.options = "eurosign:e,caps:escape";
+  services.xserver.videoDrivers = [ "intel" ];
 
   # Enable CUPS to print documents.
   services.printing.enable = true;
